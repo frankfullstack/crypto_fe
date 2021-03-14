@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 
@@ -15,10 +16,10 @@ export class AppComponent implements OnInit, OnDestroy {
   public conversionRateValue$: Observable<unknown>;
   public isConnected$: Observable<boolean>;
 
-  constructor(private socketService: WebsocketService) {}
+  constructor(private socketService: WebsocketService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.conversionRateValue$ = this.socketService.listenWebSocketEvent('new-conversion-rate');
+    this.conversionRateValue$ = this.socketService.listenWebSocketEvent('new-exchange-rate');
     this.isConnected$ = this.socketService.connection$;
   }
 

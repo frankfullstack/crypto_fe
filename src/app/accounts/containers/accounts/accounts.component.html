@@ -1,0 +1,15 @@
+<div class="tn-accounts w-full h-full py-3 bg-gray-100" *ngIf="accounts; else noAccounts">
+  <tn-top-bar></tn-top-bar>
+  <tn-accounts-table 
+    [accounts]="accounts"
+    (onNavigateToDetail)="onGoDetail($event)"
+    [currentExchangeRate]="currentExchangeRate"
+    [newRowUpdated]="accountAffected$ | async"
+  ></tn-accounts-table>
+  
+</div>
+<ng-template #noAccounts>
+    <div *ngIf="isLoading" class="h-full flex flex-col items-center justify-center">
+      <span class="text-2xl text-green-500">Processing your request ...</span>
+    </div>
+  </ng-template>

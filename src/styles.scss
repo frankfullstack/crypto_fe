@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "themes/light-theme.scss";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 @include angular-material-theme($light-theme);
 
 html,
@@ -46,3 +51,5 @@ body {
     align-items: flex-end;
   }
 }
+
+

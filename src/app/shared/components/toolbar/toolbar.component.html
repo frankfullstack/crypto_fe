@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <button mat-icon-button class="outline-none">
+    <mat-icon color="primary" class="mb-1">menu</mat-icon>
+  </button>
+
+  <!-- <span class="py-2 ml-2 text-lg font-bold text-green-700">CRYPTO TECHNEST</span> -->
+
+  <span class="tn-spacer"></span>
+  <span
+    class="tn-conversion--rate tn-flex tn-flex-row tn-items-center"
+    *ngIf="exchangeRate"
+  >
+    <img
+      class="mr-2"
+      height="24"
+      width="24"
+      src="assets/images/solid/bitcoin_base.svg"
+    />
+    :
+    <span class="tn-rate text-md font-normal text-gray-500">{{
+      exchangeRate | currency: "USD"
+    }}</span>
+  </span>
+  <span class="tn-spacer"></span>
+  <span class="tn-connection--status flex items-center flex-row">
+    <mat-icon
+      matTooltip="(isConnected) ? 'No conectado' : 'Conectado'"
+      [color]="isConnected ? 'primary' : 'warn'"
+      >stop_circle</mat-icon
+    >
+  </span>
+</mat-toolbar>

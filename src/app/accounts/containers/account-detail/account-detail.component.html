@@ -1,0 +1,23 @@
+<div
+  class="tn-account w-full h-full py-3 bg-gray-100"
+>
+  <div class="tn-account--content" *ngIf="exchangeRate; else noExchangeOrAccount">
+  <tn-top-bar ></tn-top-bar>
+    <tn-account-transactions-header
+      [exchangeRate]="exchangeRate"
+      [account]="account"
+      [newRowUpdated]="accountAffected$ | async"
+    ></tn-account-transactions-header>
+    <tn-account-transactions-table
+      [accountId]="accountId"
+      [exchangeRate]="exchangeRate"
+      [account]="account"
+      [newRowUpdated]="accountAffected$ | async"
+    ></tn-account-transactions-table>
+  </div>
+  <ng-template #noExchangeOrAccount>
+    <div *ngIf="isLoading" class="h-full flex flex-col items-center justify-center">
+      <span class="text-2xl text-green-500">Processing your request ...</span>
+    </div>
+  </ng-template>
+</div>

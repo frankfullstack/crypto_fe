@@ -1,15 +1,9 @@
-<mat-toolbar>
-  <button mat-icon-button>
-    <mat-icon color="primary">menu</mat-icon>
-  </button>
-  <span class="tn-spacer"></span>
-  <span class="tn-conversion--rate tn-flex tn-flex-row tn-items-center" *ngIf="conversionRateValue$ | async as conversionRate;">
-    <img height="24" width = "24" src="assets/images/solid/bitcoin_base.svg">
-    <span class="tn-rate">{{ conversionRate | currency : 'USD'}}</span>
-  </span>
-  <span class="tn-spacer"></span>
-  <span class="tn-connection--status tn-flex tn-flex-row tn-items-center">
-    <mat-icon [color]="(isConnected$ | async) ? 'primary' : 'warn'">stop_circle</mat-icon>
-  </span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="flex flex-col w-full h-screen bg-gray-50">
+  <tn-toolbar
+    [exchangeRate]="conversionRateValue$ | async"
+    [isConnected]="isConnected$ | async"
+  ></tn-toolbar>
+  <div class="flex-1 w-full h-full overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>
