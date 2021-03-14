@@ -1,0 +1,9 @@
+<div class="flex flex-col w-full h-screen bg-gray-50">
+  <tn-toolbar
+    [exchangeRate]="conversionRateValue$ | async"
+    [isConnected]="isConnected$ | async"
+  ></tn-toolbar>
+  <div class="flex-1 w-full h-full overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

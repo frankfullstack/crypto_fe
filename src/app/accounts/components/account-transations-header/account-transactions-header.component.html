@@ -1,0 +1,17 @@
+<div class="tn-account--detail w-full h-full py-3 bg-gray-100 p-6 mb-4" *ngIf="account">
+  <div class="tn-account--header flex flex-col mb-4">
+        <div class="tn-account--header__title text-sm">
+          <span class="font-light text-sm">{{ account.accountName }} </span>
+          <span class="ml-3 bg-blue-100 font-semibold text-xs text-blue-800 rounded-md py-1 px-2">{{ account.tags }}</span>
+        </div>
+        <span class="text-xs tn-account--header__subtitle">{{account.category }}</span>
+  </div>
+  <div class="tn-account--balance flex flex-col">
+    <span class="tn-account--balance__total text-2xl text-green-500">
+    <span class="font-semibold">{{ account.balance }} BTC</span><span class="ml-4 font-light" *ngIf="exchangeRate">({{ account.balance | exchange: exchangeRate | currency:'USD'}})</span>
+    </span>
+    <span class="tn-account--balance__subtitle text-xs text-gray-500">
+      (Includes 0 BTC ($ 0.00) of unconfirmed funds)
+    </span>
+  </div>
+</div>

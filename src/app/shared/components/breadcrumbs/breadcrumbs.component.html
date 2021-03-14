@@ -1,0 +1,4 @@
+<div class="breadcrumbs w-full flex items-center uppercase">
+  <span *ngIf="!paths.includes('/')" class="font-bold">Accounts</span>
+  <span *ngIf="paths.includes('/')"><a class="text-green-500" [routerLink]="['/accounts']">Accounts</a> / <strong>Details</strong></span><br>
+</div>

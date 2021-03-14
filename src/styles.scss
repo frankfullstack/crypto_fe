@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import "themes/light-theme.scss";
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@include angular-material-theme($light-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.tn-flex {
+  display: flex;
+}
+
+.tn-flex-col {
+  flex-direction: column;
+}
+
+.tn-flex-row {
+  flex-direction: row;
+}
+
+.tn-justify {
+  &-start {
+    justify-content: flex-start;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
+.tn-items {
+  &-start {
+    align-items: flex-start;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+}
+
+
